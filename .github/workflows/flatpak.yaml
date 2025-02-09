@@ -20,3 +20,4 @@ jobs:
           cache-key: flatpak-builder-${{ github.sha }}
           arch: x86_64
           verbose: true
+          run-tests: true
