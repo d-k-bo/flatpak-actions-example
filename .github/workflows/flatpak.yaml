@@ -1,0 +1,22 @@
+name: Flatpak
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  flatpak:
+    container:
+      image: ghcr.io/flathub-infra/flatpak-github-actions:freedesktop-24.08
+      options: --privileged
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: flathub-infra/flatpak-github-actions/flatpak-builder@master
+        with:
+          bundle: example.flatpak
+          manifest-path: org.example.Example.json
+          cache-key: flatpak-builder-${{ github.sha }}
+          arch: x86_64
+          verbose: true

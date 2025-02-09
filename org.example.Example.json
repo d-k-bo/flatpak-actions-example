@@ -1,0 +1,24 @@
+{
+  "id": "org.example.Example",
+  "runtime": "org.freedesktop.Platform",
+  "runtime-version": "24.08",
+  "sdk": "org.freedesktop.Sdk",
+  "command": "hello-world",
+  "finish-args": [],
+  "modules": [
+    {
+      "name": "hello-world",
+      "buildsystem": "simple",
+      "build-commands": [
+        "mkdir -p /app/bin",
+        "cp ./hello-world /app/bin/hello-world"
+      ],
+      "sources": [
+        {
+          "type": "dir",
+          "path": "./"
+        }
+      ]
+    }
+  ]
+}
